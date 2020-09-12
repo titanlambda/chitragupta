@@ -65,7 +65,7 @@
       <span>Site Mapper</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="charts.html">
+    <a class="nav-link" href="thirdparty.php">
       <i class="fas fa-fw fa-chart-area"></i>
       <span>Third-party library discovery</span></a>
   </li>
