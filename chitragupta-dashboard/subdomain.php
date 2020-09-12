@@ -6,7 +6,7 @@
   <div class="col-sm-4">
   <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Discover all of your sub domain here...</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Add/Edit your domain here  <button onClick="open_domain_dialog()" style="float:right" class="btn btn-success"><i style="float:right" class="fas fa-search-plus"></i></button></h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -43,20 +43,20 @@
                   <thead>
                     <tr>
                       <th>Subdomain</th>
-                      <th>Record Type</th>
+                      <!-- <th>Record Type</th> -->
                       <th>IP</th>
-                      <th>ASN</th>
+                      <!-- <th>ASN</th> -->
                     </tr>
                   </thead>
                   <tfoot>
                     <tr>
                     <th>Subdomain</th>
-                      <th>Record Type</th>
+                      <!-- <th>Record Type</th> -->
                       <th>IP</th>
-                      <th>ASN</th>
+                      <!-- <th>ASN</th> -->
                     </tr>
                   </tfoot>
-                  <tbody id="sub-domain-list">
+                  <tbody id="subdomain-list">
                    <!-- Sub domain data will be added here -->
                   </tbody>
                 </table>
@@ -92,3 +92,6 @@
 
   <!-- Scroll to Top Button-->
   <?php include 'footer.php' ?>
+  <script>
+    get_domain(1);
+  </script>
