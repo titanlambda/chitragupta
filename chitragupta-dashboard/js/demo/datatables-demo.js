@@ -1,5 +1,6 @@
-var selected = 1;
-function get_subdomain(id){
+var _selected = 1;
+var _IP_INTRUPT = false;
+async function get_subdomain(id){
   $.ajax({
     type:"POST",
     ContentType: "application/json; charset=utf-8",
@@ -8,21 +9,23 @@ function get_subdomain(id){
     success: function(response){
         console.log(response);
        response = JSON.parse(response);
-      console.log(response["data"]);
-       if(response.error === "false"){
+      console.log(response["error"]);
+       if(response.error === false){
          var data = response.data;
          var len = Object.keys(data).length;
          $("#subdomain-list").empty();
         for(i = 0 ; i < len ; i++){
-          var ip = (data[i]["ip_address"]).split(",").join(", ");
+          var ip = "";
           $("#subdomain-list").append(
             "<tr class='hoverable'>"+
             "<td>"+data[i]["subdomain"]+"</td>"+
-            "<td>"+ip+"</td>"+
+            "<td id='"+data[i]["id"]+"'>"+data[i]["ip_address"]+"</td>"+
             "</tr>"
             );
-        }
-        $('#subdomaintable').DataTable();       }
+        }    
+        map_ip(data);
+         }
+         $('#subdomaintable').DataTable();
     },
     error: function(jqXHR, textStatus, errorThrown) {
         console.table(textStatus);
@@ -31,9 +34,9 @@ function get_subdomain(id){
 });
 }
 function change(id,page){
-  $("#"+selected).css({'background':'white','font-weight':'normal','color':'black'});
+  $("#"+_selected).css({'background':'white','font-weight':'normal','color':'black'});
   $("#"+id).css({'background':'#66BB6A','font-weight':'bold','color':'white'});
-  selected = id;
+  _selected = id;
   if(page === 1) get_subdomain(id);
 }
 
@@ -49,7 +52,7 @@ function get_domain(page){
       console.log(response["data"]);
        if(response.error === "false"){
          var data = response.data;
-         selected = data[0]["id"];
+         _selected = data[0]["id"];
          var len = Object.keys(data).length;
          $("#domain-list").empty();
         for(i = 0 ; i < len ; i++){
@@ -60,9 +63,9 @@ function get_domain(page){
             "</tr>"
             );
         }
-        $('#domaintable').DataTable();
-        change(selected,page);
+        change(_selected,page);
        }
+       $('#domaintable').DataTable();
     },
     error: function(jqXHR, textStatus, errorThrown) {
         console.table(textStatus);
@@ -70,6 +73,38 @@ function get_domain(page){
       }
 });
 }
+ async function map_ip(data){
+  //  var len = 4;
+   var len = Object.keys(data).length;
+  var i = 0;
+  //  while(!_IP_INTRUPT || i != len){
+  //     await do_a_map(data[i]);
+  //     i++;
+  //  }
+  var interval = setInterval(function(){
+    if(i != len && !_IP_INTRUPT){
+      do_a_map(data[i]);
+      i++;
+    }else clearInterval(interval);
+  },1000);
+ }
+ async function do_a_map(data){
+  $.ajax({
+    type:"POST",
+    ContentType: "application/json; charset=utf-8",
+    url:BASE_URL+"subdomain.php",
+    data:{"usage":6,"domain":data["domain"],"subdomain":data["subdomain"],"subid":data["id"]},
+    success: function(response){
+        console.log(response);
+        $("#"+data["id"]).html(response);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.table(textStatus);
+        console.table(errorThrown);
+      }
+});
+return true;
+ }
 function open_domain_dialog(){
   $("#add-domain-modal").modal("show");
 }
