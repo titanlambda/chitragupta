@@ -6,7 +6,7 @@
   <div class="col-sm-4">
   <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">Add/Edit your domais here</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Add/Edit your domais here <button onClick="open_domain_dialog()" style="float:right" class="btn btn-success"><i style="float:right" class="fas fa-search-plus"></i></button></h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
@@ -43,11 +43,8 @@
                       <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
+                      <div class="dropdown-header">Action</div>
+                      <a class="dropdown-item" href="#">Hide this</a>
                     </div>
                   </div>
                 </div>
@@ -104,3 +101,6 @@
 
   <!-- Scroll to Top Button-->
   <?php include 'footer.php' ?>
+  <script>
+    get_domain(2);
+  </script>

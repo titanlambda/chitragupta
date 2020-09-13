@@ -11221,3 +11221,12 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
 }
+.hoverable:hover{
+  background-color: #4FC3F7;
+  color: white;
+  font-weight: bold;
+}
+.hoverable-domain:hover{
+  background-color: #A5D6A7 !important;
+  color: white !important;
+}
