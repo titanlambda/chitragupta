@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Chitragupta</title>
+  <title><?php echo $page_title ;?></title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -56,6 +56,7 @@
       <i class="fas fa-fw fa-chart-area"></i>
       <span>Web Assets</span></a>
   </li>
+  
   <li class="nav-item">
     <a class="nav-link" href="cloudasset.php">
       <i class="fas fa-fw fa-chart-area"></i>

@@ -1,5 +1,5 @@
 
-<?php include 'header.php' ?>
+<?php $page_title = "Third Party : Chitragupta" ; include 'header.php' ?>
 
 
 <div class="row">
