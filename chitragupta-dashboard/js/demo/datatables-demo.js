@@ -162,3 +162,19 @@ function delete_domain(id){
       }
 });
 }
+function get_web_assets(){
+  $.ajax({
+    type:"POST",
+    ContentType: "application/json; charset=utf-8",
+    url:BASE_URL+"subdomain.php",
+    data:{"usage":7},
+    success: function(response){
+        console.log(response);
+        $("#web_asset_counter").html(response);
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+        console.table(textStatus);
+        console.table(errorThrown);
+      }
+});
+}
