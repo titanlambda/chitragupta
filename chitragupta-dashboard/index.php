@@ -19,7 +19,7 @@ include 'header.php' ?>
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Web Assets</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
+                      <div id="web_asset_counter" class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -36,7 +36,7 @@ include 'header.php' ?>
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Cloud Assets</div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800">215</div>
+                      <div id="cloud_asset_counter" class="h5 mb-0 font-weight-bold text-gray-800">215</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -287,3 +287,6 @@ include 'header.php' ?>
   <!-- End of Page Wrapper -->
 
   <?php include 'footer.php' ?>
+  <script>
+    get_web_assets();
+  </script>
