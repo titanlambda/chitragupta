@@ -1,0 +1,71 @@
+{
+    "ec2": [
+        {
+            "name": "i-017bc81f5568e4258",
+            "state": {
+                "Code": 80,
+                "Name": "stopped"
+            }
+        },
+        {
+            "name": "i-0a1d5f206d33f0c28",
+            "state": {
+                "Code": 16,
+                "Name": "running"
+            }
+        }
+    ],
+    "rds": [
+        {
+            "db_engine": "mariadb",
+            "db_instance_name": "mariatrial",
+            "db_name": "maria_trial",
+            "db_storage": 20,
+            "db_type": "db.t2.micro"
+        },
+        {
+            "db_engine": "mysql",
+            "db_instance_name": "rdsmysql",
+            "db_name": "dbname",
+            "db_storage": 20,
+            "db_type": "db.t2.micro"
+        },
+        {
+            "db_engine": "postgres",
+            "db_instance_name": "yourdbid",
+            "db_name": "yourdbname",
+            "db_storage": 200,
+            "db_type": "db.m3.2xlarge"
+        }
+    ],
+    "s3": [
+        {
+            "created": "Sat, 12 Sep 2020 19:18:41 GMT",
+            "name": "aws-cloudtrail-logs-504898063367-1e551b5a"
+        },
+        {
+            "created": "Sat, 12 Sep 2020 10:24:20 GMT",
+            "name": "ghjghj"
+        },
+        {
+            "created": "Wed, 02 Sep 2020 13:25:17 GMT",
+            "name": "jexamplecom"
+        },
+        {
+            "created": "Wed, 02 Sep 2020 13:29:16 GMT",
+            "name": "logjexamplecom"
+        },
+        {
+            "created": "Sat, 12 Sep 2020 17:58:22 GMT",
+            "name": "pribv"
+        },
+        {
+            "created": "Sat, 12 Sep 2020 15:47:02 GMT",
+            "name": "samplp"
+        },
+        {
+            "created": "Wed, 02 Sep 2020 13:25:50 GMT",
+            "name": "wwwjexamplecom"
+        }
+    ]
+}
