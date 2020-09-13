@@ -11230,3 +11230,6 @@ body.sidebar-toggled footer.sticky-footer {
   background-color: #A5D6A7 !important;
   color: white !important;
 }
+.card{
+  cursor: pointer !important;
+}
