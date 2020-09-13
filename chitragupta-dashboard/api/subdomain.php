@@ -21,7 +21,7 @@ break;
 
     function get_domain($mysqli){
         $data = array();
-        $domai = $mysqli->prepare("SELECT `id`,`name` FROM `domains` WHERE `isDeleted`=0");
+        $domai = $mysqli->prepare("SELECT `id`,`name`,`ip` FROM `domains` WHERE `isDeleted`=0");
         $domai->execute();
         $res = $domai->get_result();
         // echo $res->num_rows;
@@ -127,8 +127,9 @@ break;
     }
     function add_domain($mysqli){
         // print_r($_POST);
-        $add = $mysqli->prepare("INSERT INTO `domains`(`name`) VALUES (?)");
-        $add->bind_param("s",$_POST["domain"]);
+        $add = $mysqli->prepare("INSERT INTO `domains`(`name`,`ip`) VALUES (?,?)");
+        $ip = gethostbyname($_POST["domain"]);
+        $add->bind_param("ss",$_POST["domain"],$ip);
         $add->execute();
         $res = $add->get_result();
         if($add->affected_rows > 0) return json_encode(array("error"=>"false"));

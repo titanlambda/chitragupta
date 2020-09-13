@@ -1,7 +1,7 @@
 <?php
 $page_title = "Cloud Assets : Chitragupta" ;
   include 'header.php' ;
-  echo  file_get_contents("http://23.20.126.146:8080/aws_assets");
+  // echo  file_get_contents("http://23.20.126.146:8080/aws_assets");
 ?>
 
         <div class="row"  id="getCloudService">

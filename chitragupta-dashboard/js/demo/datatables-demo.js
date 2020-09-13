@@ -1,5 +1,6 @@
 var _selected = 1;
 var _IP_INTRUPT = false;
+var _SELECTEDIP = "";
 async function get_subdomain(id){
   $.ajax({
     type:"POST",
@@ -53,6 +54,7 @@ function get_domain(page){
        if(response.error === "false"){
          var data = response.data;
          _selected = data[0]["id"];
+         _SELECTEDIP = data[0]["ip"];
          var len = Object.keys(data).length;
          $("#domain-list").empty();
         for(i = 0 ; i < len ; i++){
@@ -75,6 +77,7 @@ function get_domain(page){
 }
  async function map_ip(data){
   //  var len = 4;
+  // var hostIP = await do_a_map($("#"+_selected).html());
    var len = Object.keys(data).length;
   var i = 0;
   //  while(!_IP_INTRUPT || i != len){
@@ -88,6 +91,7 @@ function get_domain(page){
     }else clearInterval(interval);
   },1000);
  }
+
  async function do_a_map(data){
   $.ajax({
     type:"POST",
@@ -96,7 +100,7 @@ function get_domain(page){
     data:{"usage":6,"domain":data["domain"],"subdomain":data["subdomain"],"subid":data["id"]},
     success: function(response){
         console.log(response);
-        $("#"+data["id"]).html(response);
+        $("#"+data["id"]).html(_SELECTEDIP);
     },
     error: function(jqXHR, textStatus, errorThrown) {
         console.table(textStatus);
