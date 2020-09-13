@@ -1,11 +1,8 @@
-<?php include 'header.php' ?>
-
-<?php
-$ip = gethostbyname('www.ndkolar.spring360.in');
-
-echo $ip;
+<?php include 'header.php' ;
+  echo  file_get_contents("http://23.20.126.146:8080/aws_assets");
 ?>
-        <div class="row no-gutters">
+
+        <div class="row"  id="getCloudService">
         <div class="col-md-4">
           <div class="card shadow mb-4">
             <!-- Card Header - Dropdown -->
