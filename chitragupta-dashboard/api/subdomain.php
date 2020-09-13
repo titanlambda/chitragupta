@@ -14,6 +14,8 @@
     break;
     case 6: echo map_ip($mysqli);
     break;
+    case 7: echo get_web_asset_count($mysqli);
+break;
         }
     }else echo json_encode("{error:true,message:'invalid usage'}");
 
@@ -43,7 +45,7 @@
             $res = $res->fetch_assoc();
             return $res["value"];
         }else{
-            $_domain = "www.".trim($_POST["subdomain"]);
+            $_domain = trim($_POST["subdomain"]);
             $_domain = gethostbyname($_domain);
             $set_ip = $mysqli->prepare("INSERT INTO `ip_table`(`domain`, `subdomain`, `value`) VALUES (?,?,?)");
             $set_ip->bind_param("iis",$_POST["domain"],$_POST["subid"],$_domain);
@@ -139,5 +141,13 @@
         $res = $del->get_result();
         if($del->affected_rows > 0) return json_encode(array("error"=>"false"));
         return json_encode(array("error"=>"false", "message"=>$mysqli->error));
+    }
+    function get_web_asset_count($mysqli){
+        $count = $mysqli->prepare("SELECT COUNT(*) as count FROM `dns_lookup`");
+        $count->execute();
+        $res = $count->get_result();
+        $res = $res->fetch_assoc();
+        $res = $res["count"];
+        return $res;
     }
 ?>
