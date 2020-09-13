@@ -1,4 +1,5 @@
-<?php include 'header.php' ?>
+<?php $page_title = "Network Assets : Chitragupta" ;
+include 'header.php' ?>
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
